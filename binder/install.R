@@ -1,7 +1,10 @@
 options(
+  repos = c(CRAN = "https://cloud.r-project.org"),
   torch.download_non_interactive = TRUE,
   torch.download_quiet = TRUE
 )
+
+message("Installing CRAN packages...")
 
 install.packages(c(
   "IRkernel",
@@ -9,18 +12,22 @@ install.packages(c(
   "data.table",
   "ggplot2",
   "remotes",
-  "symengine",
   "numbers",
   "trust",
-  "torch",
-  "deSolve",
-), repos = "https://cloud.r-project.org")
+  "deSolve"
+))
 
+message("Installing symengine...")
+install.packages("symengine")
 
+message("Installing torch...")
+install.packages("torch")
 torch::install_torch()
 
-library(remotes)
-install_github("jackkrebsbach/rwendy")
+message("Installing GitHub package...")
+remotes::install_github("jackkrebsbach/rwendy")
 
+message("Registering IRkernel...")
 IRkernel::installspec(user = FALSE)
 
+message("DONE")
