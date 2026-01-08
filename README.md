@@ -3,5 +3,5 @@
 Launch this project on Binder:
 
 [![Binder](https://mybinder.org/badge_logo.svg)](
-https://mybinder.org/v2/gh/jackkrebsbach/binder/HEAD?urlpath=notebooks/demo.ipynb
+https://mybinder.org/v2/gh/jackkrebsbach/binder/HEAD?urlpath=notebooks/wendy_demo.ipynb
 )
