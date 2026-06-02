@@ -1,30 +1,17 @@
-options(
-  repos = c(CRAN = "https://cloud.r-project.org"),
-  torch.download_non_interactive = TRUE,
-  torch.download_quiet = TRUE
-)
+options(repos = c(CRAN = "https://cloud.r-project.org"))
 
 message("Installing CRAN packages...")
 
 install.packages(c(
   "IRkernel",
-  "tidyverse",
-  "data.table",
-  "ggplot2",
   "remotes",
-  "numbers",
-  "trust",
   "deSolve"
 ))
 
-message("Installing symengine...")
-install.packages("symengine")
-
-message("Installing torch...")
-install.packages("torch")
-torch::install_torch()
-
-message("Installing GitHub package...")
+message("Installing GitHub package (wendy)...")
+# wendy's other dependencies (trust, MASS, minpack.lm) are pulled in
+# automatically from its DESCRIPTION. The symbolic backend defaults to a
+# pure base-R implementation, so symengine is not required.
 remotes::install_github("jackkrebsbach/rwendy")
 
 message("Registering IRkernel...")
